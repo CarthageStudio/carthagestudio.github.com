@@ -213,7 +213,7 @@
 							<h2>Contact?</h2>
 						</header>
 
-						<form method="post" action="mailto:charthagegamestudio@gmail.com">
+						<form method="post" onsubmit="SendEmail(); reset(); return false">
 							<div class="row">
 								<div class="col-6 col-12-mobilep">
 									<input type="text" name="name" placeholder="Name" />
@@ -228,6 +228,22 @@
 									<ul class="actions special">
 										<li><input type="submit" value="Send Message" /></li>
 									</ul>
+									<script>
+                                        function SendEmail() {
+                                            Email.send({
+                                                Host: "smtp.gmail.com",
+                                                Username: "charthagegamestudio@gmail.com",
+												To: 'charthagegamestudio@gmail.com',
+												From: document.getElementsByName("email"),
+                                                Subject: document.getElementsByName("name"),
+                                                Body: document.getElementsByName("message")
+                                            }).then(
+                                                message => alert(message)
+                                            );
+
+                                        }
+
+									</script>
 								</div>
 							</div>
 						</form>
