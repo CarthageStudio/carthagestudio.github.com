@@ -1,1 +1,0 @@
-# carthagestudio.github.io
